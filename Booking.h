@@ -10,19 +10,19 @@ class Booking
 private:
 	string mFlightTime;
 	string mSeat;
-	int mPassenger;
+	string mPassengerName;
 
 public:
 	Booking();
-	Booking(string aFlightTime, string aSeat, int aPassenger);
+	Booking(string aFlightTime, string aSeat, string aPassengerName);
 
 	void SetFlightTime(string aFlightTime);
 	void SetSeat(string aSeat);
-	void SetPassenger(int aPassenger);
+	void SetPassenger(string aPassengerName);
 
 	string GetFlightTime();
 	string GetSeat();
-	int GetPassenger();
+	string GetPassengerName();
 
 	void Display();
 };
