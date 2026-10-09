@@ -2,13 +2,12 @@
 
 Booking::Booking()
 {
-	mPassenger = 0;
 }
-Booking::Booking(string aFlightTime, string aSeat, int aPassenger)
+Booking::Booking(string aFlightTime, string aSeat, string aPassengerName)
 {
 	mFlightTime = aFlightTime;
 	mSeat = aSeat;
-	mPassenger = aPassenger;
+	mPassengerName = aPassengerName;
 }
 
 void Booking::SetFlightTime(string aFlightTime)
@@ -19,9 +18,9 @@ void Booking::SetSeat(string aSeat)
 {
 	mSeat = aSeat;
 }
-void Booking::SetPassenger(int aPassenger)
+void Booking::SetPassenger(string aPassengerName)
 {
-	mPassenger = aPassenger;
+	mPassengerName = aPassengerName;
 }
 
 string Booking::GetFlightTime()
@@ -32,14 +31,15 @@ string Booking::GetSeat()
 {
 	return mSeat;
 }
-int Booking::GetPassenger()
+string Booking::GetPassengerName()
 {
-	return mPassenger;
+	return mPassengerName;
 }
 
 void Booking::Display()
 {
 	cout << "----- Booking -----" << endl;
+	cout << "Name: " << mPassengerName << endl;
 	cout << "Flight Time: " << mFlightTime << endl;
 	cout << "Seat: " << mSeat << endl;
 }
