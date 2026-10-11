@@ -2,7 +2,7 @@
 #include<vector>
 #include<string>
 #include "Booking.h"
-#include "Flights.h"
+#include "Flight.h"
 
 using namespace std;
 
