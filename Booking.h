@@ -1,4 +1,6 @@
-#pragma once
+#ifndef BOOKING_H
+#define BOOKING_H
+
 #include<iostream>
 #include<vector>
 #include<string>
