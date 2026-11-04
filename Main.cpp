@@ -30,18 +30,18 @@ int main()
 	vector <Flight> flights;
 	vector <Booking> bookings;
 
-	flights.pushback(Flight("5:40 AM", 150)); [cite:3]
-		flights.pushback(Flight("6:30 PM", 170)); [cite:3]
-		flights.pushback(Flight("10:55 PM", 200)); [cite:3]
+	flights.push_back(Flight("5:40 AM", 150)); 
+	flights.push_back(Flight("6:30 PM", 170)); 
+	flights.push_back(Flight("10:55 PM", 200)); 
 
 		int choice = 0;
 	bool running = true;
 
 	while (running) {
-		displayMenu();
+		DisplayMenu();
 
 		if (!(cin >> choice)) {
-			cout << "\nInvalid input! Please enter a number through 1-5.\";
+			cout << "\nInvalid input! Please enter a number through 1-5.\n";
 				ClearInput();
 			continue;
 		}
@@ -51,17 +51,17 @@ int main()
 			cout << "\n---Available Flights---\n";
 			for (size_t i = 0; i < flights.size(); i++) {
 				cout << "\nFlight #" << (i + 1);
-				flights[i].displayFlight(true); [cite:3]
+				flights[i].displayFlight(true); 
 			}
 			break;
 		}
 		case 2: {
 			cout << "\n---Book A Seat---\n";
 			for (size_t i = 0; i < flights.size(); i++) {
-				cout << i + 1 << ".Flight Time: " << flights[i].getFlightTime() << endl;[cite:3]
+				cout << i + 1 << ".Flight Time: " << flights[i].getFlightTime() << endl;
 			}
 			cout << "Select a flight number (1-" << flights.size() << "): ";
-			int flghtIndex;
+			int flightIndex;
 			if (!(cin >> flightIndex) || flightIndex < 1 || flightIndex > static_cast<int>(flights.size())) {
 				cout << "Invalid flight selection.\n";
 				ClearInput();
@@ -71,22 +71,22 @@ int main()
 
 			Flight& selectedFlight = flights[flightIndex];
 
-			selectedFlight.displayAvailableSeats(); [cite:3]
+			selectedFlight.displayAvailableSeats(); 
 				cout << "Enter Seat Code (e.g., A1): ";
 			string seatCode;
 			cin >> seatCode;
 
-			if(!(selectedFlight.isSeatAvailable(seatCode)) {[cite:3]
-			cout << "Error: Seat " << seatCode << " is not available.\n";
-				break;
+			if (!(selectedFlight.isSeatAvailable(seatCode))){
+				cout << "Error: Seat " << seatCode << " is not available.\n";
+					break;
 			}
 			cout << "Enter Passenger Name: ";
 				ClearInput();
 				string PassengerName;
-				getlined(cin, PassengerName);
+				getline(cin, PassengerName);
 
-				selectedFlight.makeSeatUnavailable(seatCode); [cite:3]
-				Booking newBooking(selectedFlight.getFlightTime(), seatCode, PassengerName); [cite:1]
+				selectedFlight.makeSeatUnavailable(seatCode); 
+				Booking newBooking(selectedFlight.getFlightTime(), seatCode, PassengerName);
 				bookings.push_back(newBooking);
 
 			cout << "\nSuccess! Flight booked for " << PassengerName << ".\n";
@@ -101,7 +101,7 @@ int main()
 			else {
 				for (size_t i = 0; i < bookings.size(); i++) {
 					cout << "\nBooking #" << (i + 1) << endl;
-					bookings[i].Display(); [cite:1]
+					bookings[i].Display();
 				}
 			}
 			break;
@@ -113,13 +113,13 @@ int main()
 				break;
 			}
 			for (size_t i = 0; i < bookings.size(); i++) {
-				cout << i + 1 << ". " << bookings[i].GetPassengerName()[cite:1]
-					<< " | Flight: " << bookings[i].GetFlightTime()[cite:1]
-					<< " | Seat: " << bookings[i].GetSeat() << endl; [cite:1]
+				cout << i + 1 << ". " << bookings[i].GetPassengerName()
+					<< " | Flight: " << bookings[i].GetFlightTime()
+					<< " | Seat: " << bookings[i].GetSeat() << endl; 
 			}
 			cout << "Select booking number to cancel: ";
 			int CancelIndex;
-			if (!(cin >> CancelIndex) || CanccelIndex < 1 || CancelIndex > static_cast<int>(bookings.size())) {
+			if (!(cin >> CancelIndex) || CancelIndex < 1 || CancelIndex > static_cast<int>(bookings.size())) {
 				ClearInput();
 				break;
 			}
@@ -129,12 +129,11 @@ int main()
 
 			for (size_t i = 0; i < flights.size(); i++) {
 				if (flights[i].getFlightTime() == cancelledBooking.GetFlightTime()) {
-					[cite:1, 3]
-					flights[i].makeSeatAvailable(cancelledBooking.GetSeat()); [cite:1, 3]
+					flights[i].makeSeatAvailable(cancelledBooking.GetSeat());
 						break;
 				}
 			}
-			bookings.erase(bookings.begin() + cancelIndex);
+			bookings.erase(bookings.begin() + CancelIndex);
 			cout << "Booking successfully canceled.\n";
 			break;
 		}
@@ -143,7 +142,7 @@ int main()
 			running = false;
 			break;
 		}
-		default: 
+		default:
 			cout << "\nInvalid selection. Please choose an option between 1 and 5.\n";
 			break;
 		}
